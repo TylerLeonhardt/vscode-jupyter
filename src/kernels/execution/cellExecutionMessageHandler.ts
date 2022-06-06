@@ -39,6 +39,7 @@ import { ITracebackFormatter } from '../../kernels/types';
 import { handleTensorBoardDisplayDataOutput } from './executionHelpers';
 import { WIDGET_MIMETYPE } from '../../kernels/ipywidgets-message-coordination/constants';
 import { isJupyterNotebook } from '../../platform/common/utils';
+import isObject = require('lodash/isObject');
 
 // Helper interface for the set_next_input execute reply payload
 interface ISetNextInputPayload {
@@ -69,7 +70,7 @@ function getParentHeaderMsgId(msg: KernelMessage.IMessage): string | undefined {
 
 /**
  * The Output Widget in Jupyter can render multiple outputs. However some of them
- * like ipywidgets and the like cannot be handled by it.
+ * like vendored mimetypes cannot be handled by it.
  */
 function canMimeTypeBeRenderedByWidgetManager(mime: string) {
     if (mime == CellOutputMimeTypes.stderr || mime == CellOutputMimeTypes.stdout || mime == CellOutputMimeTypes.error) {
