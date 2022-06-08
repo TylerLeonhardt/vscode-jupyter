@@ -31,7 +31,12 @@ import { IApplicationShell } from '../../platform/common/application/types';
 import { disposeAllDisposables } from '../../platform/common/helpers';
 import { traceError, traceWarning } from '../../platform/logging';
 import { IDisposable, IExtensionContext } from '../../platform/common/types';
-import { traceCellMessage, cellOutputToVSCCellOutput, translateCellDisplayOutput, CellOutputMimeTypes } from './helpers';
+import {
+    traceCellMessage,
+    cellOutputToVSCCellOutput,
+    translateCellDisplayOutput,
+    CellOutputMimeTypes
+} from './helpers';
 import { formatStreamText, concatMultilineString } from '../../webviews/webview-side/common';
 import { swallowExceptions } from '../../platform/common/utils/decorators';
 import { noop } from '../../platform/common/utils/misc';
